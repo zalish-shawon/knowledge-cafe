@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'; // ES6
 import { BiBookmarks } from 'react-icons/bi';
-const Blog = ({ blog, handleAddBookmark }) => {
+const Blog = ({ blog, handleAddBookmark, handleMarkAsRead }) => {
     const {title, cover, author, author_img, posted_date, reading_time, hashtags} = blog
     return (
         <div className='mb-20'>
@@ -25,6 +25,7 @@ const Blog = ({ blog, handleAddBookmark }) => {
                     hashtags.map((hash, idx) => <span key={idx}><a href=''>#{hash}</a></span>)
                 }
             </p>
+            <button onClick={()=> handleMarkAsRead(reading_time)}>Mark as read</button>
         </div>
     );
 };
